@@ -1,11 +1,3 @@
-
-Gemini
-New chat
-Search chats
-Students
-Images
-Library
-New notebook
 Sentinel DMS README Generation
 How to Delete a GitHub Repository
 Encrypting PDF Files in Python
