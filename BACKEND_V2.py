@@ -12,7 +12,7 @@ from functools import wraps
 from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
 
-app = Flask(__name__, static_folder='.', static_url_path='')
+app = Flask(__name__, static_folder=None)
 CORS(app, resources={r"/*": {"origins": "*"}}, allow_headers=["Content-Type", "X-User-ID", "X-Auth-Token"])
 
 DB_NAME = os.getenv("DMS_DB", "gov_dms_v4.db")
@@ -393,8 +393,9 @@ def custody_event(document_id, actor, action, reason="", from_user="", to_user="
 
 # Static file route for hosting single-page application in cloud environments
 @app.route("/")
+@app.route("/FRONTEND_V2.html")
 def index():
-    return send_from_directory(".", "FRONTEND_V2_5.html")
+    return send_from_directory(app.root_path, "FRONTEND_V2.html")
 
 
 @app.route("/register", methods=["POST"])
@@ -826,7 +827,10 @@ def verify_integrity():
     return jsonify({"integrity_ok": len(broken) == 0, "checked": len(rows), "broken_events": broken})
 
 
+# Gunicorn imports this module without running the __main__ block.
+init_db()
+
+
 if __name__ == "__main__":
-    init_db()
     port = int(os.getenv("PORT", 8000))
     app.run(host="0.0.0.0", port=port, debug=False)
