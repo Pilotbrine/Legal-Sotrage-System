@@ -394,7 +394,7 @@ def custody_event(document_id, actor, action, reason="", from_user="", to_user="
 # Static file route for hosting single-page application in cloud environments
 @app.route("/")
 def index():
-    return send_from_directory(".", "FRONTEND_V2_3.html")
+    return send_from_directory(".", "FRONTEND_V2_5.html")
 
 
 @app.route("/register", methods=["POST"])
