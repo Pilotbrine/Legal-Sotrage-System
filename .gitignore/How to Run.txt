@@ -1,0 +1,22 @@
+OFFICER-9254
+gov123
+
+Admin user:ADMIN-01 
+Admin pass:admin
+
+SUPER-01
+super123
+
+Run the Python Backend First the Html
+
+
+xpczkntckxrncxmf
+
+
+
+
+$env:SMTP_HOST="smtp.gmail.com"
+$env:SMTP_PORT="587"
+$env:SMTP_USER="legalmdosdm@gmail.com"
+$env:SMTP_PASSWORD="xpczkntckxrncxmf"
+$env:SMTP_FROM="legalmdosdm@gmail.com"
